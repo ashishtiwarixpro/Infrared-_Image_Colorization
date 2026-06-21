@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>IR Colorization & Enhancement | Satellite Intelligence Platform</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;500;600&family=Fira+Mono:wght@400;500&display=swap"
+        rel="stylesheet" />
+</head>
+
+<body>
+
+    <!-- ═══════════════ HERO: SPACE ANIMATION ═══════════════ -->
+    <section class="hero" id="home">
+        <canvas id="spaceCanvas"></canvas>
+
+        <div class="satellite-orbit">
+            <div class="orbit-ring"></div>
+            <div class="satellite" id="satellite">
+                <div class="sat-body">
+                    <div class="sat-panel left"></div>
+                    <div class="sat-core">
+                        <div class="sat-sensor"></div>
+                    </div>
+                    <div class="sat-panel right"></div>
+                </div>
+                <div class="sat-beam"></div>
+            </div>
+        </div>
+
+        <div class="hero-content">
+            <div class="hero-tag">SATELLITE REMOTE SENSING · DEEP LEARNING</div>
+            <h1 class="hero-title">
+                <span class="title-line">Infrared</span>
+                <span class="title-line accent">Intelligence</span>
+            </h1>
+            <p class="hero-sub">
+                Transform monochrome IR satellite imagery into high-fidelity, colorized RGB —
+                enhancing situational awareness through deep learning.
+            </p>
+            <div class="hero-cta">
+                <a href="#demo" class="btn-primary">Launch Demo</a>
+                <a href="#pipeline" class="btn-ghost">Explore Pipeline</a>
+            </div>
+            <div class="hero-metrics">
+                <div class="metric"><span class="mval">42 dB</span><span class="mlabel">PSNR Target</span></div>
+                <div class="metric-div"></div>
+                <div class="metric"><span class="mval">0.97</span><span class="mlabel">SSIM Score</span></div>
+                <div class="metric-div"></div>
+                <div class="metric"><span class="mval">&lt;2s</span><span class="mlabel">Inference / Tile</span></div>
+            </div>
+        </div>
+
+        <div class="scroll-indicator">
+            <div class="scroll-dot"></div>
+            <span>Scroll to explore</span>
+        </div>
+    </section>
+
+    <!-- ═══════════════ OVERVIEW ═══════════════ -->
+    <section class="section overview" id="overview">
+        <div class="container">
+            <div class="section-label">MISSION OVERVIEW</div>
+            <h2 class="section-title">From Thermal Noise<br />to Semantic Clarity</h2>
+            <p class="section-desc">
+                Infrared sensors operate through night and adverse weather — but deliver low-contrast, monochrome data
+                that limits both human analysts and computer vision models. Our end-to-end framework bridges this gap.
+            </p>
+            <div class="overview-grid">
+                <div class="ov-card">
+                    <div class="ov-icon">🌡️</div>
+                    <h3>IR Enhancement</h3>
+                    <p>Super-resolution and edge sharpening reveal faint textures hidden in raw thermal data.</p>
+                </div>
+                <div class="ov-card">
+                    <div class="ov-icon">🎨</div>
+                    <h3>Realistic Colorization</h3>
+                    <p>Maps thermal signatures to accurate RGB representations — forests to green, water to blue.</p>
+                </div>
+                <div class="ov-card">
+                    <div class="ov-icon">🧠</div>
+                    <h3>Semantic Integrity</h3>
+                    <p>Pre-trained land-cover classifiers ensure colorization never misrepresents ground truth.</p>
+                </div>
+                <div class="ov-card">
+                    <div class="ov-icon">🎯</div>
+                    <h3>Downstream Boost</h3>
+                    <p>Enhanced outputs directly improve object detection and segmentation accuracy.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════ PIPELINE ═══════════════ -->
+    <section class="section pipeline-section" id="pipeline">
+        <div class="container">
+            <div class="section-label">END-TO-END FRAMEWORK</div>
+            <h2 class="section-title">The Processing Pipeline</h2>
+
+            <div class="pipeline">
+                <div class="pipe-step" data-step="01">
+                    <div class="pipe-num">01</div>
+                    <div class="pipe-body">
+                        <h3>Data Acquisition & Pre-processing</h3>
+                        <p>Collect paired IR and RGB datasets from Landsat 8/9. Co-register thermal and visible bands
+                            for pixel-perfect alignment.</p>
+                        <div class="pipe-tags">
+                            <span>Landsat 8/9</span><span>USGS
+                                EarthExplorer</span><span>Rasterio</span><span>GDAL</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pipe-arrow">↓</div>
+
+                <div class="pipe-step" data-step="02">
+                    <div class="pipe-num">02</div>
+                    <div class="pipe-body">
+                        <h3>Image Enhancement (Super-Resolution)</h3>
+                        <p>ESRGAN-based SR module upscales low-resolution IR images and sharpens faint structural edges
+                            before colorization.</p>
+                        <div class="pipe-tags">
+                            <span>ESRGAN</span><span>OpenCV</span><span>Unsharp Masking</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pipe-arrow">↓</div>
+
+                <div class="pipe-step" data-step="03">
+                    <div class="pipe-num">03</div>
+                    <div class="pipe-body">
+                        <h3>IR → RGB Colorization</h3>
+                        <p>Pix2Pix / CycleGAN architecture translates enhanced IR to realistic RGB, trained on paired
+                            Landsat band data.</p>
+                        <div class="pipe-tags">
+                            <span>Pix2Pix</span><span>CycleGAN</span><span>PyTorch</span><span>TensorFlow</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pipe-arrow">↓</div>
+
+                <div class="pipe-step" data-step="04">
+                    <div class="pipe-num">04</div>
+                    <div class="pipe-body">
+                        <h3>Semantic Constraint Integration</h3>
+                        <p>A land-cover classifier enforces semantic consistency — water → blue, vegetation → green,
+                            urban → grey.</p>
+                        <div class="pipe-tags">
+                            <span>DeepLabV3+</span><span>Semantic Masks</span><span>Loss Constraints</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pipe-arrow">↓</div>
+
+                <div class="pipe-step" data-step="05">
+                    <div class="pipe-num">05</div>
+                    <div class="pipe-body">
+                        <h3>Evaluation & Validation</h3>
+                        <p>Quantitative assessment via PSNR, SSIM, FID. Qualitative hallucination checks on held-out
+                            test tiles.</p>
+                        <div class="pipe-tags">
+                            <span>PSNR</span><span>SSIM</span><span>FID</span><span>skimage</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════ INTERACTIVE DEMO ═══════════════ -->
+    <section class="section demo-section" id="demo">
+        <div class="container">
+            <div class="section-label">LIVE DEMO</div>
+            <h2 class="section-title">AI-Powered IR Colorization</h2>
+            <p class="section-desc">Upload an infrared satellite image and see the AI colorize and enhance it in real
+                time using our pipeline.</p>
+
+            <div class="demo-box">
+                <div class="demo-upload-zone" id="uploadZone">
+                    <input type="file" id="imageInput" accept="image/*" hidden />
+                    <div class="upload-inner" onclick="document.getElementById('imageInput').click()">
+                        <div class="upload-icon">📡</div>
+                        <p>Drop IR satellite image here or <span class="upload-link">browse</span></p>
+                        <p class="upload-hint">Supports JPG, PNG, TIFF · Max 10MB</p>
+                    </div>
+                </div>
+
+                <div class="demo-controls" id="demoControls" style="display:none">
+                    <div class="control-row">
+                        <label>Enhancement Mode</label>
+                        <select id="enhMode">
+                            <option value="esrgan">ESRGAN Super-Resolution</option>
+                            <option value="sharp">Edge Sharpening</option>
+                            <option value="combined">Combined (Recommended)</option>
+                        </select>
+                    </div>
+                    <div class="control-row">
+                        <label>Colorization Model</label>
+                        <select id="colorModel">
+                            <option value="pix2pix">Pix2Pix (Paired)</option>
+                            <option value="cyclegan">CycleGAN (Unpaired)</option>
+                        </select>
+                    </div>
+                    <div class="control-row">
+                        <label>Semantic Constraints</label>
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="semanticToggle" checked />
+                            <span class="toggle-slider"></span>
+                        </label>
+                    </div>
+                    <button class="btn-primary full-width" id="processBtn" onclick="processImage()">
+                        ⚡ Colorize & Enhance
+                    </button>
+                </div>
+
+                <div class="demo-results" id="demoResults" style="display:none">
+                    <div class="result-panel">
+                        <div class="rp-label">INPUT (IR)</div>
+                        <div class="rp-img-wrap">
+                            <img id="inputPreview" src="" alt="IR Input" />
+                        </div>
+                    </div>
+                    <div class="result-arrow">→</div>
+                    <div class="result-panel">
+                        <div class="rp-label">OUTPUT (RGB)</div>
+                        <div class="rp-img-wrap" id="outputWrap">
+                            <div class="processing-overlay" id="processingOverlay">
+                                <div class="proc-spinner"></div>
+                                <p id="procStatus">Initializing pipeline…</p>
+                            </div>
+                            <img id="outputPreview" src="" alt="RGB Output" style="display:none" />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="metrics-panel" id="metricsPanel" style="display:none">
+                    <h3>Evaluation Metrics</h3>
+                    <div class="metrics-grid">
+                        <div class="met-card"><span class="met-val" id="psnrVal">—</span><span class="met-lbl">PSNR
+                                (dB)</span></div>
+                        <div class="met-card"><span class="met-val" id="ssimVal">—</span><span
+                                class="met-lbl">SSIM</span></div>
+                        <div class="met-card"><span class="met-val" id="fidVal">—</span><span class="met-lbl">FID
+                                Score</span></div>
+                        <div class="met-card"><span class="met-val" id="timeVal">—</span><span class="met-lbl">Inference
+                                (s)</span></div>
+                    </div>
+                    <div class="ai-analysis" id="aiAnalysis">
+                        <div class="aa-label">AI SEMANTIC ANALYSIS</div>
+                        <div class="aa-content" id="aaContent">Analyzing…</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════ DATASET ═══════════════ -->
+    <section class="section dataset-section" id="dataset">
+        <div class="container">
+            <div class="section-label">DATA SOURCES</div>
+            <h2 class="section-title">Where to Get Satellite Images</h2>
+            <p class="section-desc">Use these official, free sources to download Landsat 8/9 IR and RGB band data for
+                training and testing.</p>
+
+            <div class="dataset-grid">
+                <div class="ds-card primary">
+                    <div class="ds-badge">PRIMARY</div>
+                    <h3>USGS EarthExplorer</h3>
+                    <p>Official USGS portal for Landsat 8/9 Collection 2 data. Download Band 10/11 (TIRS thermal) and
+                        Bands 4/3/2 (RGB).</p>
+                    <div class="ds-steps">
+                        <div class="ds-step"><span>1</span> Go to earthexplorer.usgs.gov</div>
+                        <div class="ds-step"><span>2</span> Select "Landsat" → "Landsat 8-9 OLI/TIRS C2 L2"</div>
+                        <div class="ds-step"><span>3</span> Draw AOI on map, set date range</div>
+                        <div class="ds-step"><span>4</span> Download Band 10 (IR) + Bands 4,3,2 (RGB)</div>
+                    </div>
+                    <a href="https://earthexplorer.usgs.gov" target="_blank" class="ds-link">Visit EarthExplorer →</a>
+                </div>
+
+                <div class="ds-card">
+                    <div class="ds-badge alt">ALTERNATIVE</div>
+                    <h3>Google Earth Engine</h3>
+                    <p>Cloud-based platform to access, process, and export Landsat collections at scale via Python API.
+                    </p>
+                    <div class="ds-steps">
+                        <div class="ds-step"><span>1</span> Sign up at code.earthengine.google.com</div>
+                        <div class="ds-step"><span>2</span> Use
+                            <code>ee.ImageCollection('LANDSAT/LC09/C02/T1_L2')</code></div>
+                        <div class="ds-step"><span>3</span> Select bands ST_B10 (thermal) + SR_B4/B3/B2</div>
+                        <div class="ds-step"><span>4</span> Export to Google Drive as GeoTIFF</div>
+                    </div>
+                    <a href="https://code.earthengine.google.com" target="_blank" class="ds-link">Visit GEE →</a>
+                </div>
+
+                <div class="ds-card">
+                    <div class="ds-badge alt">BENCHMARK</div>
+                    <h3>Copernicus Open Hub</h3>
+                    <p>ESA's free hub for Sentinel-2 multispectral data, useful as supplementary paired training data.
+                    </p>
+                    <div class="ds-steps">
+                        <div class="ds-step"><span>1</span> Visit scihub.copernicus.eu</div>
+                        <div class="ds-step"><span>2</span> Search for Sentinel-2 L2A tiles</div>
+                        <div class="ds-step"><span>3</span> Use B8A (NIR) as IR proxy</div>
+                        <div class="ds-step"><span>4</span> B4/B3/B2 for true color RGB</div>
+                    </div>
+                    <a href="https://scihub.copernicus.eu" target="_blank" class="ds-link">Visit Copernicus →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════ TECH STACK ═══════════════ -->
+    <section class="section tech-section" id="tech">
+        <div class="container">
+            <div class="section-label">TECHNOLOGY STACK</div>
+            <h2 class="section-title">Tools & Libraries</h2>
+            <div class="tech-grid">
+                <div class="tech-col">
+                    <h3>Deep Learning</h3>
+                    <div class="tech-item"><span class="tech-dot"></span>PyTorch / TensorFlow</div>
+                    <div class="tech-item"><span class="tech-dot"></span>Pix2Pix (Image Translation)</div>
+                    <div class="tech-item"><span class="tech-dot"></span>CycleGAN (Unpaired)</div>
+                    <div class="tech-item"><span class="tech-dot"></span>ESRGAN (Super-Resolution)</div>
+                    <div class="tech-item"><span class="tech-dot"></span>DeepLabV3+ (Segmentation)</div>
+                </div>
+                <div class="tech-col">
+                    <h3>Geospatial</h3>
+                    <div class="tech-item"><span class="tech-dot"></span>Rasterio (GeoTIFF I/O)</div>
+                    <div class="tech-item"><span class="tech-dot"></span>GDAL (Reprojection)</div>
+                    <div class="tech-item"><span class="tech-dot"></span>Geopandas (Vector data)</div>
+                    <div class="tech-item"><span class="tech-dot"></span>Pyproj (CRS transforms)</div>
+                    <div class="tech-item"><span class="tech-dot"></span>EarthPy (Landsat utilities)</div>
+                </div>
+                <div class="tech-col">
+                    <h3>Image Processing</h3>
+                    <div class="tech-item"><span class="tech-dot"></span>OpenCV (Enhancement)</div>
+                    <div class="tech-item"><span class="tech-dot"></span>Pillow / PIL</div>
+                    <div class="tech-item"><span class="tech-dot"></span>scikit-image (PSNR/SSIM)</div>
+                    <div class="tech-item"><span class="tech-dot"></span>torchmetrics (FID)</div>
+                    <div class="tech-item"><span class="tech-dot"></span>Albumentations (Augment)</div>
+                </div>
+                <div class="tech-col">
+                    <h3>Infrastructure</h3>
+                    <div class="tech-item"><span class="tech-dot"></span>Python 3.10+</div>
+                    <div class="tech-item"><span class="tech-dot"></span>CUDA / cuDNN</div>
+                    <div class="tech-item"><span class="tech-dot"></span>Docker</div>
+                    <div class="tech-item"><span class="tech-dot"></span>Weights & Biases (MLOps)</div>
+                    <div class="tech-item"><span class="tech-dot"></span>FastAPI (Serving)</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════ EVALUATION ═══════════════ -->
+    <section class="section eval-section" id="evaluation">
+        <div class="container">
+            <div class="section-label">EVALUATION METRICS</div>
+            <h2 class="section-title">How We Measure Quality</h2>
+            <div class="eval-grid">
+                <div class="eval-card">
+                    <div class="eval-formula">PSNR</div>
+                    <h3>Peak Signal-to-Noise Ratio</h3>
+                    <p>Measures reconstruction fidelity in decibels. Higher is better. Target: ≥ 35 dB.</p>
+                    <div class="eval-bar">
+                        <div class="eval-fill" style="width:85%"><span>Target: 42 dB</span></div>
+                    </div>
+                </div>
+                <div class="eval-card">
+                    <div class="eval-formula">SSIM</div>
+                    <h3>Structural Similarity Index</h3>
+                    <p>Compares luminance, contrast, and structure between output and ground truth. Range: 0–1.</p>
+                    <div class="eval-bar">
+                        <div class="eval-fill" style="width:97%"><span>Target: 0.97</span></div>
+                    </div>
+                </div>
+                <div class="eval-card">
+                    <div class="eval-formula">FID</div>
+                    <h3>Fréchet Inception Distance</h3>
+                    <p>Evaluates visual realism by comparing feature distributions. Lower is better.</p>
+                    <div class="eval-bar">
+                        <div class="eval-fill fid" style="width:70%"><span>Target: &lt;30</span></div>
+                    </div>
+                </div>
+                <div class="eval-card">
+                    <div class="eval-formula">⚡ T</div>
+                    <h3>Inference Time</h3>
+                    <p>Time to process one full satellite tile (256×256 px). Ensures production scalability.</p>
+                    <div class="eval-bar">
+                        <div class="eval-fill time" style="width:90%"><span>Target: &lt;2s</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════════ FOOTER ═══════════════ -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="brand-logo">IR<span class="accent">·</span>Intel</div>
+                    <p>End-to-end infrared satellite image colorization and enhancement for improved object
+                        interpretation.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Navigation</h4>
+                    <a href="#overview">Overview</a>
+                    <a href="#pipeline">Pipeline</a>
+                    <a href="#demo">Demo</a>
+                    <a href="#dataset">Dataset</a>
+                    <a href="#tech">Tech Stack</a>
+                </div>
+                <div class="footer-links">
+                    <h4>Data Sources</h4>
+                    <a href="https://earthexplorer.usgs.gov" target="_blank">USGS EarthExplorer</a>
+                    <a href="https://code.earthengine.google.com" target="_blank">Google Earth Engine</a>
+                    <a href="https://scihub.copernicus.eu" target="_blank">Copernicus Hub</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span>Built for Satellite Remote Sensing Research</span>
+                <span>Landsat 8/9 · USGS · Deep Learning</span>
+            </div>
+        </div>
+    </footer>
+
+    <script src="space.js"></script>
+    <script src="demo.js"></script>
+    <script src="main.js"></script>
+</body>
+
+</html>
